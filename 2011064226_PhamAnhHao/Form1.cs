@@ -58,6 +58,7 @@ namespace _2011064226_PhamAnhHao
 
         private void btnSave_Click(object sender, EventArgs e)
         {
+            //Nút lưu
 
             int age =int.Parse(txtbirh.Text);
             if (age < 18)
