@@ -58,7 +58,7 @@ namespace _2011064226_PhamAnhHao
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            //Nút lưu
+            //Nút lưus
 
             int age =int.Parse(txtbirh.Text);
             if (age < 18)
@@ -102,6 +102,7 @@ namespace _2011064226_PhamAnhHao
 
         private void btnBrowse_Click(object sender, EventArgs e)
         {
+            //Nút Mở
             using (OpenFileDialog ofd = new OpenFileDialog()
             {
                 Filter = "Imagefile | *.* "
