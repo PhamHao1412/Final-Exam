@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Linq;
@@ -55,11 +56,20 @@ namespace _2011064226_PhamAnhHao
             employersBindingSource.MoveLast();
             txtName.Focus();
         }
-
+        private void ValidateEmail()
+        {
+            string email = txtEmail.Text;
+            Regex regex = new Regex(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$");
+            Match match = regex.Match(email);
+            if (match.Success)
+                label4.Text = email + " is Valid Email Address";
+            else
+                label4.Text = email + " is Invalid Email Address";
+        }
         private void btnSave_Click(object sender, EventArgs e)
         {
-            //Nút lưus
 
+            ValidateEmail();
             int age =int.Parse(txtbirh.Text);
             if (age < 18)
             {
@@ -102,7 +112,7 @@ namespace _2011064226_PhamAnhHao
 
         private void btnBrowse_Click(object sender, EventArgs e)
         {
-            //Nút Mở
+            
             using (OpenFileDialog ofd = new OpenFileDialog()
             {
                 Filter = "Imagefile | *.* "
